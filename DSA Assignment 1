@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+int main()
+{  
+  int rows, columns, search_element, count=0;
+  printf("Enter the number of rows: ");
+  scanf("%d", &rows);
+  printf("Enter the number of columns: ");
+  scanf("%d", &columns);
+  printf("\n");
+  
+  int i, j;
+  int array[rows][columns];
+  for(i=1; i<=rows; i++)
+  {
+    for(j=1; j<=columns; j++)
+    {
+      printf("Enter element of %d row and %d column: ", i, j);
+      scanf("%d", &array[i][j]);
+    }
+  }
+  
+  //Enter the search element which you want to check.
+  printf("\nEnter the search element: ");
+  scanf("%d", &search_element);
+  
+  //If the search element is found, then print its position and increment the count.
+  for(i=1; i<=rows; i++)
+  {
+    for(j=1; j<=columns; j++)
+    {
+      if(array[i][j]==search_element)
+      {
+        printf("\nThe searched element is in %d row and %d column!!", i, j);
+        count++;
+      }
+    }
+  }
+  
+  //If searched element is not found, print the same.
+  if(count==0)
+    printf("\nThe searched element is not found!!");
+    
+  return 0;
+}
