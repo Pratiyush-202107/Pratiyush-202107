@@ -1,7 +1,7 @@
 /*Program-2: Using iteration & recursion concept write a program for finding an element in the array using Binary Search method: 
 Pratiyush Kumar (202107)*/
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std; 
 
 int binary_search(int arr[], int start, int end, int search_element)
