@@ -1,0 +1,52 @@
+/*Program-2: Using iteration & recursion concept write a program for finding an element in the array using Binary Search method: 
+Pratiyush Kumar (202107)*/
+
+#include<iostream>
+using namespace std;
+
+int binary_search(int arr[], int start, int end, int search_element)
+{
+    while (start <= end)
+        {
+            int mid = start + (end - start) / 2; 
+
+            //Checking if search_element is present at mid: 
+            if (search_element == arr[mid]) 
+                return mid;
+
+            //If search_element is greater, ignore left half (subarray):
+            else if (search_element > arr[mid]) 
+                start = mid + 1; 
+
+            //If search_element is smaller, ignore right half (subarray): 
+            else
+                end = mid - 1;
+        }
+
+//If we reach here, it means we weren't able to find the search_element.
+return -1;
+}
+
+int main()
+{
+    int n;
+    
+    cout << "Enter length of array: ";
+    cin >> n;
+    
+    int search_element, arr[n];
+
+    cout << "Enter array: "; //Array must be sorted.
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    
+    cout << "Enter the element you want to search: ";
+    cin >> search_element;
+    
+    int result = binary_search(arr, 0, n - 1, search_element);
+
+    //If function returns -1, print element isn't found else print the index position of the search_element.
+    (result == -1) ? cout << "Element is not present in array" : cout << "Element is present at index " << result;
+
+    return 0;
+}
