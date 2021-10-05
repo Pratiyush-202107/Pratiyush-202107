@@ -1,0 +1,120 @@
+/*Program to perform {Addition, Subtraction, Multiplication and Transpose} operations on tables using functions only.
+Pratiyush Kumar (202107) */
+
+#include<iostream>
+#define rows 3
+#define columns 3
+using namespace std;
+
+//Function for addition of tables:
+void Addition(int Table_1[rows][columns], int Table_2[rows][columns])
+{
+    int Table_sum[rows][columns];
+    cout << endl << "\nAddition of tables:";
+    for(int x = 0; x < rows; x++)
+    {   cout << endl;
+        for(int y = 0; y < columns; y++)
+            {Table_sum[x][y] = Table_1[x][y] + Table_2[x][y];
+            cout << Table_sum[x][y] << " ";}
+    }
+}
+
+//Function for subtraction of tables:
+void Subtraction(int Table_1[rows][columns], int Table_2[rows][columns])
+{
+    int Table_subtract[rows][columns];
+    cout << endl << "\nSubtraction of tables:";
+    for(int a = 0; a < rows; a++)
+    {
+        cout << endl;
+        for(int b = 0; b < columns; b++)
+            {Table_subtract[a][b] = Table_1[a][b] - Table_2[a][b];
+            cout << Table_subtract[a][b] << " ";}
+    }
+}
+
+//Function for multiplication of tables:
+void Multiplication(int Table_1[rows][columns], int Table_2[rows][columns])
+{
+    int Table_sum[rows][columns];
+    cout << endl << "\nMultiplication of tables:";
+    for(int g = 0; g < rows; g++)
+    {   cout << endl;
+        for(int h = 0; h < columns; h++)
+            {Table_sum[g][h] = Table_1[g][h] * Table_2[g][h];
+            cout << Table_sum[g][h] << " ";}
+    }
+}
+
+//Function for transpose of tables:
+void Transpose(int Table_1[rows][columns], int Table_2[rows][columns])
+{
+    int Transpose_1[rows][columns], Transpose_2[rows][columns];
+    cout << endl << "\nTranspose of tables:";
+    for(int i = 0; i < rows; i++)
+    {   cout << endl;
+        for(int j = 0; j < columns; j++)
+            {Transpose_1[i][j] = Table_1[j][i];;
+            cout << Transpose_1[i][j] << " ";}
+    }
+
+    cout << endl;
+    for(int k = 0; k < rows; k++)
+    {   cout << endl;
+        for(int l = 0; l < columns; l++)
+            {Transpose_2[k][l] = Table_2[l][k];;
+            cout << Transpose_2[k][l] << " ";}
+    }
+}
+
+//Main Function:
+int main()
+{
+    int Table_1[rows][columns], Table_2[rows][columns];
+
+    //Specifying the dimensions of table:
+    cout << "Program to perform mathematical operations on tables of data:" << endl;
+    cout << "{Note: The table configuration is set as " << rows << " rows and " << columns << " columns!!" << endl;
+    cout << "If you want to change the configuration, reset the defined values for rows and columns.}" << endl;
+
+    //Taking input:
+    cout << endl << "Enter the values for first table:" << endl;
+    for(int i = 0; i < rows; i++)
+    {
+        cout << "Enter elements for " << i + 1 << " row (with space in between): ";
+        for(int j = 0; j < columns; j++)
+            cin >> Table_1[i][j];
+    }
+
+    cout << endl << "Enter the values for second table:" << endl;
+    for(int m = 0; m < rows; m++)
+    {
+        cout << "Enter elements for " << m + 1 << " row (with space in between): ";
+        for(int n = 0; n < columns; n++)
+            cin >> Table_2[m][n];
+    }
+
+    //Displaying collected data:
+    cout << endl << "First Table:";
+    for(int c = 0; c < rows; c++)
+    {
+        cout << endl;
+        for(int d = 0; d < columns; d++)
+            cout << Table_1[c][d] << " ";
+    }
+
+    cout << endl << "\nSecond Table:";
+    for(int e = 0; e < rows; e++)
+    {
+        cout << endl;
+        for(int f = 0; f < columns; f++)
+            cout << Table_2[e][f] << " ";
+    }
+
+    //Displaying desired result:
+    Addition(Table_1, Table_2);
+    Subtraction(Table_1, Table_2);
+    Multiplication(Table_1, Table_2);
+    Transpose(Table_1, Table_2);
+    return 0;
+}
