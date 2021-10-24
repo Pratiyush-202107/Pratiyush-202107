@@ -1,0 +1,70 @@
+/*Program-5: WAP to implement the various operations on string such as a) length of string b) concatenation c) reverse a string d) copy a string
+Pratiyush Kumar (202107) */
+#include <iostream>
+using namespace std;
+
+//Function to find length of a string
+int string_length(string string_1)
+{
+    int i = 0;
+    while (string_1[i] != '\0')
+        i++;
+    return i;
+}
+
+//Function to concatenate two strings
+void string_concatenation(string string_1, string string_2)
+{
+    string string_3 = string_1 + string_2;
+    cout << string_3 << endl;
+}
+
+//Function to reverse a string
+void string_reverse(string str)
+{
+    int length = 0, n;
+    char temp;
+    length = string_length(str);
+    n = length - 1;
+
+    for(int i = 0; i <= length/2; i++)
+    {
+        temp = str[i];
+        str[i] = str[n];
+        str[n] = temp;
+        n--;
+    }
+
+    cout<<"\nReverse of string: "<< str <<endl;
+}
+
+//Function to copy second string to the first
+void string_copy(string &string_1, string string_2)
+{
+    string_1 = string_2;
+}
+
+int main()
+{
+    string str, string_1, string_2;
+    cout << "Enter string value: ";
+    cin >> string_1;
+
+    int length = string_length(string_1);
+    cout << "Length of string is: " << length <<endl;
+    
+    cout << "\nEnter another string: ";
+    cin >> str;
+    cout << "\nStrings before copying one to another: " << string_1 << "\t" << str << endl;
+    string_copy(str, string_1);
+    cout << "Strings after copying: " << string_1 << "\t" << str << endl;
+    
+    string_reverse(string_1);
+
+    cout << "\nEnter the string which you want to concatenate: ";
+    cin >> string_2;
+    cout << "\nConcatenated string: ";
+    string_concatenation(string_1, string_2);
+
+    return 0;
+}
