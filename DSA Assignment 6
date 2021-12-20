@@ -1,0 +1,39 @@
+/*Program for swapping of two numbers using 'call by value' and 'call by reference' strategies.
+Pratiyush Kumar(202107)*/
+#include <iostream>
+using namespace std;
+
+void swap_value(int a, int b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    cout << "a = " << a << ", b = " << b << endl;
+}
+
+void swap_reference(int *a, int *b)
+{
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+    cout << "a = " << *a << ", b = " << *b << endl;
+}
+
+int main()
+{
+    int a, b;
+    cout << "Enter value of a: ";
+    cin >> a;
+    cout << "Enter value of b: ";
+    cin >> b;
+    cout << "\nBefore swapping, a = " << a << " and b = " << b << endl;
+    cout << "After swapping, values in function (call by value): ";
+    swap_value(a, b);//The values of actual parameters don't change by changing the formal parameters in call by value.
+    cout << "After swapping, values in main (call by value): a = " << a << ", b = " << b <<  endl;
+    cout << "After swapping, values in function (call by reference): ";
+    swap_reference(&a, &b);//The values of actual parameters do change by changing the formal parameters in call by reference.
+    cout << "After swapping, values in main (call by reference): a = " << a << ", b = " << b <<  endl;
+    return 0;  
+}
