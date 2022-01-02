@@ -1,0 +1,60 @@
+/*Program to implement all the tree traversal methods using classes.
+Pratiyush Kumar (202107)*/
+#include <iostream>
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node *left, *right;
+
+    Node(int data)
+    {
+        this->data = data;
+        left = right = NULL;
+    }
+
+    void Preorder(Node *node)
+    {
+        if(node == NULL)
+            return;
+        cout << node->data << " ";
+        Preorder(node->left);
+        Preorder(node->right);
+    }
+
+    void Inorder(Node *node)
+    {
+        if(node == NULL)
+            return;
+        Inorder(node->left);
+        cout << node->data << " ";
+        Inorder(node->right);
+    }
+
+    void Postorder(Node *node)
+    {
+        if(node == NULL)
+            return;
+        Postorder(node->left);
+        Postorder(node->right);
+        cout << node->data << " ";
+    }
+};
+
+int main()
+{
+    Node *root = new Node(9);
+    root->left = new Node(8);
+    root->right = new Node(7);
+    root->left->left = new Node(6);
+    root->left->right = new Node(5);
+    cout << "Preorder Traversal of tree: ";
+    (*root).Preorder(root);
+    cout << "\nInorder Traversal of tree: ";
+    (*root).Inorder(root);
+    cout << "\nPostorder Traversal of tree: ";
+    (*root).Postorder(root);
+    return 0;
+}
